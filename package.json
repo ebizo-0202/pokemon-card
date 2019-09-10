@@ -9,8 +9,10 @@
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
+    "sls": "sls",
     "sls:deploy": "sls deploy",
-    "deploy:api_gw": "cross-env NODE_ENV=production ENDPOINT_ENV=api_gw run-s build sls:deploy"
+    "deploy:api_gw": "cross-env NODE_ENV=production ENDPOINT_ENV=api_gw run-s build sls:deploy",
+    "delete": "sls remove"
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.0",

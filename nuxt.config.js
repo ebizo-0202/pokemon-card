@@ -8,6 +8,21 @@ if (ENV.BASE_URL) {
 module.exports = {
   mode: 'universal',
   srcDir: 'app',
+
+  router: {
+    ...routerConfig,
+  },
+
+  render: {
+    /**
+     * compression を通すと2重に Gzip がかかりブラウザが表示できないので
+     * なにもしないミドルウェアを定義しておく
+     */
+    compressor: (req, res, next) => {
+      next();
+    },
+  },
+
   /*
   ** Headers of the page
   */
@@ -55,5 +70,9 @@ module.exports = {
     */
     extend (config, ctx) {
     }
-  }
+  },
+
+  env: {
+    NODE_VERSION: process.versions.node,
+  },
 }
