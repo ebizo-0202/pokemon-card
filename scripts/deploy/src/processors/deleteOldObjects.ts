@@ -1,7 +1,7 @@
 import consola from 'consola';
 import dayjs from 'dayjs';
 import { listObjects, deleteObjects } from '../lib/s3';
-import { S3Bucket, S3ObjectContext } from 'src/types';
+import { S3Bucket, S3ObjectContext } from '../types';
 
 const buildLastModified = (lastModified: Date | undefined): Date => {
   if (typeof lastModified === 'undefined') {
