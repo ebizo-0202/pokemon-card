@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import DeckPanel from '~/components/organisms/DeckPanel';
+import DeckPanel from '@/app/components/organisms/DeckPanel';
 export default {
   components: {
     DeckPanel,

@@ -1,4 +1,5 @@
 const { ENV } = require('./configs/env');
+const path = require('path');
 
 const routerConfig = {};
 if (ENV.BASE_URL) {
@@ -8,7 +9,6 @@ if (ENV.BASE_URL) {
 module.exports = {
   mode: 'universal',
   srcDir: 'app',
-
   router: {
     ...routerConfig,
   },
@@ -71,6 +71,8 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      let path = require('path');
+      config.resolve.alias['@'] = path.join(__dirname, './')
     }
   },
 

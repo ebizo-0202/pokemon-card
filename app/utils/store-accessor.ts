@@ -1,11 +1,23 @@
 import { Store } from 'vuex'
 import { getModule } from 'vuex-module-decorators'
-import Feed from '~/store/feed'
+import DeckCreator from '@/app/store/modules/deck'
+import Card from '@/app/store/modules/card'
 
-let feedStore: Feed
+let deckStore: DeckCreator
+let cardStore: Card
+console.log('pass')
+console.log(DeckCreator)
+console.log(Card)
 
 function initialiseStores(store: Store<any>): void {
-  feedStore = getModule(Feed, store)
+  console.log('passsssss')
+  console.log(deckStore)
+  deckStore = getModule(DeckCreator, store)
+  cardStore = getModule(Card, store)
 }
 
-export { initialiseStores, feedStore }
+function nana(store: Store<any>): void {
+  console.log('nana')
+}
+
+export { initialiseStores, deckStore, cardStore, nana }

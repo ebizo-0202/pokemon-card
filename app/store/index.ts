@@ -1,27 +1,10 @@
-// import Vuex from 'vuex'
-// import * as root from './root'
-// import * as decks from './modules/decks'
-// import * as cards from './modules/cards'
-
-// export type RootState = root.State
-// console.log('pass');
-// console.log(decks);
-// console.log(decks.name);
-
-// const createState = () => {
-//   return new Vuex.Store({
-//     state: root.state(),
-//     modules: {
-//       [decks.name]: decks,
-//       [cards.name]: cards,
-//     }
-//   })
-// }
-
-// export default createState
-
 import { Store } from 'vuex'
-import { initializeStores } from '~/utils/store-accessor'
-const initializer = (store: Store<any>) => initializeStores(store)
+import { initialiseStores, nana } from '@/app/utils/store-accessor'
+const initializer = (store: Store<any>) => initialiseStores(store)
+console.log('before nana')
+const nanaed = (store: Store<any>) => nana(store)
+nanaed
+console.log('after nana')
+console.log(nanaed)
 export const plugins = [initializer]
-export * from '~/utils/store-accessor'
+export * from '@/app/utils/store-accessor'

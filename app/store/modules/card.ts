@@ -1,40 +1,33 @@
-import { RootState } from '..'
-import createState from '..'
-import { GetterTree, ActionTree, ActionContext, MutationTree } from 'vuex'
-import { Card, State } from './cardTypes'
+import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators'
 
-createState()
+import Deck from '@/app/models/deck'
+import Card from '@/app/models/card'
 
-export const name = 'cards'
-export const namespaced = true
-
-export const state = (): State => ({
-  card: {},
-})
-
-export const getters: GetterTree<State, RootState> = {
-  card: (state) => {
-    return state.card
-  },
+export interface ICardState {
+  name: string
+  count: number
 }
 
-export const types = {
-  SET_CARD: 'SET_CARD'
-}
+@Module({ stateFactory: true, namespaced: true, name: 'card' })
+export default class DeckCard extends VuexModule implements ICardState {
+  name: string = ''
+  count: number = 0
 
-export interface Actions<S, R> extends ActionTree<S, R> {
-  setCard (context: ActionContext<S, R>, card: Card): void,
-}
+  @Mutation
+  setName(name: string) {
+    console.log(`一旦のカード名: ${name}`)
+    this.name = name
+  }
+  setCount(count: number) {
+    console.log(`一旦のカード数: ${count}`)
+    this.count = count
+  }
 
-export const actions: Actions<State, RootState> = {
-  async setCard ({ commit }, card: Card) {
-
-    commit(types.SET_CARD, card)
-  },
-}
-
-export const mutations: MutationTree<State> = {
-  [types.SET_CARD] (state, card: Card) {
-    state.card = card
-  },
+  @Action
+  setCardName(name: string) {
+    this.setName(name)
+  }
+  setCardCount(count: number) {
+    this.setCardCount(count)
+  }
 }

@@ -1,4 +1,4 @@
-export interface Card {
+export type Card = {
   id?: number
   name?: string
   text?: string
@@ -7,6 +7,4 @@ export interface Card {
   attached?: Card[]
 }
 
-export interface State {
-  card: Card,
-}
+export default Card
