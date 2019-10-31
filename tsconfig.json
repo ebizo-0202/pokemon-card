@@ -29,7 +29,7 @@
       "@nuxt/types"
     ]
   },
-  "exclude": [
-    "node_modules"
+  "include": [
+    "app/**/*.ts"
   ]
 }

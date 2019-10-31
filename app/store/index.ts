@@ -1,10 +1,22 @@
-import { Store } from 'vuex'
-import { initialiseStores, nana } from '@/app/utils/store-accessor'
-const initializer = (store: Store<any>) => initialiseStores(store)
-console.log('before nana')
-const nanaed = (store: Store<any>) => nana(store)
-nanaed
-console.log('after nana')
-console.log(nanaed)
-export const plugins = [initializer]
-export * from '@/app/utils/store-accessor'
+import Vue from 'vue'
+import Vuex from 'vuex'
+import * as root from './root'
+import * as deck from './modules/deck'
+import * as card from './modules/card'
+
+export type RootState = root.State
+console.log(deck.name)
+console.log(deck.namespaced)
+
+Vue.use(Vuex)
+
+export default () => {
+  console.log(`pass to createState`)
+  return new Vuex.Store({
+    state: root.state(),
+    modules: {
+      [deck.name]: deck,
+    }
+  })
+}
+

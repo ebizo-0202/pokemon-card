@@ -7,3 +7,9 @@ export type Deck = {
 }
 
 export default Deck
+
+export interface State {
+  decks: Deck[],
+  deck: Deck,
+  selectedDecks: Deck[]
+}
