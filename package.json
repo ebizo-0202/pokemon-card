@@ -5,9 +5,9 @@
   "author": "",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/local.js --watch server",
-    "build": "nuxt build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
     "generate": "nuxt generate",
     "generate:error": "cross-env NODE_ENV=production GENERATE_ERROR_PAGE=true nuxt generate",
     "sls": "sls",
